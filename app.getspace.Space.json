@@ -28,8 +28,8 @@
       "sources": [
         {
           "type": "archive",
-          "url": "https://space-linux.s3.eu-west-1.amazonaws.com/releases/space_2.0.5.tar.xz",
-          "sha256": "1cf7f4c8e76f32bf0800a5e45708ad28b4baba831d35c16d3f6db0789abad04c",
+          "url": "https://space-linux.s3.eu-west-1.amazonaws.com/releases/space_2.0.6.tar.xz",
+          "sha256": "0adaae744babf559a0f4291550f24260393d71e313347b347480e62acb4bcfd3",
           "dest": "space"
         }
       ]
