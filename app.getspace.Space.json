@@ -1,7 +1,7 @@
 {
   "app-id": "app.getspace.Space",
   "runtime": "org.freedesktop.Platform",
-  "runtime-version": "20.08",
+  "runtime-version": "24.08",
   "sdk": "org.freedesktop.Sdk",
   "command": "space",
   "separate-locales": false,
@@ -23,7 +23,7 @@
 
         "install -Dm644 /app/space/data/flutter_assets/assets/images/logo.svg /app/share/icons/hicolor/scalable/apps/app.getspace.Space.svg",
         "install -Dm644 /app/space/app.getspace.Space.desktop /app/share/applications/app.getspace.Space.desktop",
-        "install -Dm644 /app/space/app.getspace.Space.metainfo.xml /app/share/appdata/app.getspace.Space.metainfo.xml"
+        "install -Dm644 /app/space/app.getspace.Space.metainfo.xml /app/share/metainfo/app.getspace.Space.metainfo.xml"
       ],
       "sources": [
         {
@@ -31,6 +31,10 @@
           "url": "https://space-linux.s3.eu-west-1.amazonaws.com/releases/space_2.0.6.tar.xz",
           "sha256": "0adaae744babf559a0f4291550f24260393d71e313347b347480e62acb4bcfd3",
           "dest": "space"
+        },
+        {
+          "type": "patch",
+          "path": "app.getspace.Space.metainfo.xml.patch"
         }
       ]
     }
