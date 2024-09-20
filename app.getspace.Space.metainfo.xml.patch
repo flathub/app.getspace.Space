@@ -1,0 +1,15 @@
+--- a/space/app.getspace.Space.metainfo.xml	2022-09-17 03:11:31.000000000 -0500
++++ b/space/app.getspace.Space.metainfo.xml	2024-09-20 14:48:08.301058557 -0500
+@@ -19,6 +19,12 @@
+ 
+     <p>The mission of Space is to make learning effective and joyful. We hope you'll join us!</p>
+   </description>
++  <categories>
++    <category>Education</category>
++  </categories>
++  <provides>
++    <binary>space</binary>
++  </provides>
+   <screenshots>
+     <screenshot><image type="source">https://space-linux.s3.eu-west-1.amazonaws.com/screenshots/Linux+Store+-+Desktop+1.png</image></screenshot>
+     <screenshot><image type="source">https://space-linux.s3.eu-west-1.amazonaws.com/screenshots/Linux+Store+-+Desktop+2.png</image></screenshot>
