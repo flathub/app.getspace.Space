@@ -1,6 +1,18 @@
 --- a/space/app.getspace.Space.metainfo.xml	2022-09-17 03:11:31.000000000 -0500
-+++ b/space/app.getspace.Space.metainfo.xml	2024-09-20 14:48:08.301058557 -0500
-@@ -19,6 +19,12 @@
++++ b/space/app.getspace.Space.metainfo.xml	2024-09-20 16:18:26.889251524 -0500
+@@ -11,19 +11,25 @@
+     <p>Space is an easy-to-use Spaced Repetition System (SRS) app. Create and learn flashcards wherever you are in the most effective way possible.</p>
+ 
+     <ul>
+-      <li>🤝 WORK TOGETHER: Share your flashcards and work on them together.</li>
+-      <li>🖥️ ON ALL YOUR DEVICES: Android, iOS, Windows, macOS, Linux and soon Web</li>
+-      <li>🎨 CREATE YOUR FLASHCARDS: Design your flashcards with formatting and images.</li>
+-      <li>💸 FREE: Everything is free and no advertising, but you can support us through donations.</li>
++      <li>WORK TOGETHER: Share your flashcards and work on them together.</li>
++      <li>ON ALL YOUR DEVICES: Android, iOS, Windows, macOS, Linux and soon Web</li>
++      <li>CREATE YOUR FLASHCARDS: Design your flashcards with formatting and images.</li>
++      <li>FREE: Everything is free and no advertising, but you can support us through donations.</li>
+     </ul>
  
      <p>The mission of Space is to make learning effective and joyful. We hope you'll join us!</p>
    </description>
@@ -11,5 +23,14 @@
 +    <binary>space</binary>
 +  </provides>
    <screenshots>
-     <screenshot><image type="source">https://space-linux.s3.eu-west-1.amazonaws.com/screenshots/Linux+Store+-+Desktop+1.png</image></screenshot>
-     <screenshot><image type="source">https://space-linux.s3.eu-west-1.amazonaws.com/screenshots/Linux+Store+-+Desktop+2.png</image></screenshot>
+-    <screenshot><image type="source">https://space-linux.s3.eu-west-1.amazonaws.com/screenshots/Linux+Store+-+Desktop+1.png</image></screenshot>
+-    <screenshot><image type="source">https://space-linux.s3.eu-west-1.amazonaws.com/screenshots/Linux+Store+-+Desktop+2.png</image></screenshot>
+-    <screenshot><image type="source">https://space-linux.s3.eu-west-1.amazonaws.com/screenshots/Linux+Store+-+Desktop+3.png</image></screenshot>
+-    <screenshot><image type="source">https://space-linux.s3.eu-west-1.amazonaws.com/screenshots/Linux+Store+-+Desktop+4.png</image></screenshot>
++    <screenshot type="default"><image>https://space-linux.s3.eu-west-1.amazonaws.com/screenshots/Linux+Store+-+Desktop+1.png</image></screenshot>
++    <screenshot><image>https://space-linux.s3.eu-west-1.amazonaws.com/screenshots/Linux+Store+-+Desktop+2.png</image></screenshot>
++    <screenshot><image>https://space-linux.s3.eu-west-1.amazonaws.com/screenshots/Linux+Store+-+Desktop+3.png</image></screenshot>
++    <screenshot><image>https://space-linux.s3.eu-west-1.amazonaws.com/screenshots/Linux+Store+-+Desktop+4.png</image></screenshot>
+   </screenshots>
+   <launchable type="desktop-id">app.getspace.Space.desktop</launchable>
+   <releases>
