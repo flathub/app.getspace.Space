@@ -24,7 +24,8 @@
         "ln -s /app/space/space /app/bin/space",
         "install -Dm644 /app/space/data/flutter_assets/assets/images/brand_logo.svg /app/share/icons/hicolor/scalable/apps/app.getspace.Space.svg",
         "install -Dm644 /app/space/app.getspace.Space.desktop /app/share/applications/app.getspace.Space.desktop",
-        "install -Dm644 /app/space/app.getspace.Space.metainfo.xml /app/share/metainfo/app.getspace.Space.metainfo.xml"
+        "install -Dm644 /app/space/app.getspace.Space.metainfo.xml /app/share/metainfo/app.getspace.Space.metainfo.xml",
+        "cp -a /app/space/lib/libmpv.so* /app/lib/"
       ],
       "sources": [
         {
