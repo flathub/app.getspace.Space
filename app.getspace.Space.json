@@ -22,7 +22,6 @@
         "chmod +x /app/space/client_mobile",
         "mkdir /app/bin",
         "ln -s /app/space/client_mobile /app/bin/space",
-
         "install -Dm644 /app/space/data/flutter_assets/assets/images/logo.svg /app/share/icons/hicolor/scalable/apps/app.getspace.Space.svg",
         "install -Dm644 /app/space/app.getspace.Space.desktop /app/share/applications/app.getspace.Space.desktop",
         "install -Dm644 /app/space/app.getspace.Space.metainfo.xml /app/share/metainfo/app.getspace.Space.metainfo.xml"
@@ -30,13 +29,9 @@
       "sources": [
         {
           "type": "archive",
-          "url": "https://space-linux.s3.eu-west-1.amazonaws.com/releases/space_2.0.6.tar.xz",
-          "sha256": "0adaae744babf559a0f4291550f24260393d71e313347b347480e62acb4bcfd3",
+          "url": "https://space-linux.s3.eu-west-1.amazonaws.com/releases/space_5.0.0.tar.xz",
+          "sha256": "a6d594028cc2c5c23e00b1910ed2ba8153f699f2b22c6607a6f453526997eaba",
           "dest": "space"
-        },
-        {
-          "type": "patch",
-          "path": "app.getspace.Space.metainfo.xml.patch"
         }
       ]
     }
