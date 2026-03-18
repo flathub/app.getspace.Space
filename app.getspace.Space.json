@@ -15,17 +15,83 @@
   ],
   "modules": [
     {
+      "name": "libass",
+      "cleanup": ["/include", "/lib/pkgconfig"],
+      "config-opts": ["--disable-static"],
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://github.com/libass/libass/releases/download/0.17.3/libass-0.17.3.tar.xz",
+          "sha256": "da7c348deb6fa6571a1a0df39c82b919f416903a4ac60f2085475a20d96cf685"
+        }
+      ]
+    },
+    {
+      "name": "libplacebo",
+      "buildsystem": "meson",
+      "cleanup": ["/include", "/lib/pkgconfig"],
+      "config-opts": [
+        "-Ddemos=false",
+        "-Dd3d11=disabled",
+        "-Dvulkan=enabled"
+      ],
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://code.videolan.org/videolan/libplacebo.git",
+          "tag": "v7.349.0",
+          "commit": "1fd3c7bde7b943fe8985c893310b5571a25abfe9"
+        }
+      ],
+      "modules": [
+        {
+          "name": "glslang",
+          "buildsystem": "cmake-ninja",
+          "cleanup": ["/bin", "/include", "/lib/cmake"],
+          "config-opts": [
+            "-DCMAKE_BUILD_TYPE=Release",
+            "-DBUILD_SHARED_LIBS=ON"
+          ],
+          "sources": [
+            {
+              "type": "archive",
+              "url": "https://github.com/KhronosGroup/glslang/archive/refs/tags/15.1.0.tar.gz",
+              "sha256": "4aba6e67e633892e46e94fcb505f78bfab5a403ae2b4d25e6868a1e5e10e89dc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mpv",
+      "buildsystem": "meson",
+      "cleanup": ["/include", "/lib/pkgconfig", "/share/bash-completion", "/share/zsh", "/share/doc", "/share/icons", "/share/applications"],
+      "config-opts": [
+        "-Dlibmpv=true",
+        "-Dcplayer=false",
+        "-Dbuild-date=false",
+        "-Dmanpage-build=disabled",
+        "-Dgpl=false"
+      ],
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://github.com/mpv-player/mpv/archive/refs/tags/v0.39.0.tar.gz",
+          "sha256": "2ca92437affb62c2b559b4419ea4785c70d023590500e8a52e95ea3ab4554683"
+        }
+      ]
+    },
+    {
       "name": "space",
       "buildsystem": "simple",
       "build-commands": [
         "cp -r space /app/space",
         "chmod +x /app/space/space",
-        "mkdir /app/bin",
+        "mkdir -p /app/bin",
         "ln -s /app/space/space /app/bin/space",
         "install -Dm644 /app/space/data/flutter_assets/assets/images/brand_logo.svg /app/share/icons/hicolor/scalable/apps/app.getspace.Space.svg",
         "install -Dm644 /app/space/app.getspace.Space.desktop /app/share/applications/app.getspace.Space.desktop",
-        "install -Dm644 /app/space/app.getspace.Space.metainfo.xml /app/share/metainfo/app.getspace.Space.metainfo.xml",
-        "mkdir -p /app/lib && cp -an /app/space/lib/*.so* /app/lib/"
+        "install -Dm644 /app/space/app.getspace.Space.metainfo.xml /app/share/metainfo/app.getspace.Space.metainfo.xml"
       ],
       "sources": [
         {
