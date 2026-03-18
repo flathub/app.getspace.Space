@@ -17,12 +17,18 @@
     {
       "name": "libass",
       "cleanup": ["/include", "/lib/pkgconfig"],
-      "config-opts": ["--disable-static"],
+      "config-opts": [
+        "--disable-static",
+        "--enable-asm",
+        "--enable-harfbuzz",
+        "--enable-fontconfig"
+      ],
       "sources": [
         {
-          "type": "archive",
-          "url": "https://github.com/libass/libass/releases/download/0.17.3/libass-0.17.3.tar.xz",
-          "sha256": "da7c348deb6fa6571a1a0df39c82b919f416903a4ac60f2085475a20d96cf685"
+          "type": "git",
+          "url": "https://github.com/libass/libass.git",
+          "tag": "0.17.4",
+          "commit": "bbb3c7f1570a4a021e52683f3fbdf74fe492ae84"
         }
       ]
     },
@@ -31,34 +37,15 @@
       "buildsystem": "meson",
       "cleanup": ["/include", "/lib/pkgconfig"],
       "config-opts": [
-        "-Ddemos=false",
-        "-Dd3d11=disabled",
-        "-Dvulkan=enabled"
+        "-Dvulkan=enabled",
+        "-Dshaderc=enabled"
       ],
       "sources": [
         {
           "type": "git",
-          "url": "https://code.videolan.org/videolan/libplacebo.git",
-          "tag": "v7.349.0",
-          "commit": "1fd3c7bde7b943fe8985c893310b5571a25abfe9"
-        }
-      ],
-      "modules": [
-        {
-          "name": "glslang",
-          "buildsystem": "cmake-ninja",
-          "cleanup": ["/bin", "/include", "/lib/cmake"],
-          "config-opts": [
-            "-DCMAKE_BUILD_TYPE=Release",
-            "-DBUILD_SHARED_LIBS=ON"
-          ],
-          "sources": [
-            {
-              "type": "archive",
-              "url": "https://github.com/KhronosGroup/glslang/archive/refs/tags/15.1.0.tar.gz",
-              "sha256": "4aba6e67e633892e46e94fcb505f78bfab5a403ae2b4d25e6868a1e5e10e89dc"
-            }
-          ]
+          "url": "https://github.com/haasn/libplacebo.git",
+          "tag": "v7.360.1",
+          "commit": "cee9b076f2c63104ccfd497fa79c39a867293ec4"
         }
       ]
     },
@@ -88,7 +75,7 @@
         "cp -r space /app/space",
         "chmod +x /app/space/space",
         "mkdir -p /app/bin",
-        "ln -s /app/space/space /app/bin/space",
+        "printf '#!/bin/sh\\nexport LD_LIBRARY_PATH=/app/lib:${LD_LIBRARY_PATH}\\nexec /app/space/space \"$@\"\\n' > /app/bin/space && chmod +x /app/bin/space",
         "install -Dm644 /app/space/data/flutter_assets/assets/images/brand_logo.svg /app/share/icons/hicolor/scalable/apps/app.getspace.Space.svg",
         "install -Dm644 /app/space/app.getspace.Space.desktop /app/share/applications/app.getspace.Space.desktop",
         "install -Dm644 /app/space/app.getspace.Space.metainfo.xml /app/share/metainfo/app.getspace.Space.metainfo.xml"
