@@ -1,7 +1,7 @@
 {
   "app-id": "app.getspace.Space",
   "runtime": "org.freedesktop.Platform",
-  "runtime-version": "24.08",
+  "runtime-version": "25.08",
   "sdk": "org.freedesktop.Sdk",
   "command": "space",
   "separate-locales": false,
@@ -15,28 +15,77 @@
   ],
   "modules": [
     {
+      "name": "libass",
+      "cleanup": ["/include", "/lib/pkgconfig"],
+      "config-opts": [
+        "--disable-static",
+        "--enable-asm",
+        "--enable-harfbuzz",
+        "--enable-fontconfig"
+      ],
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://github.com/libass/libass.git",
+          "tag": "0.17.4",
+          "commit": "bbb3c7f1570a4a021e52683f3fbdf74fe492ae84"
+        }
+      ]
+    },
+    {
+      "name": "libplacebo",
+      "buildsystem": "meson",
+      "cleanup": ["/include", "/lib/pkgconfig"],
+      "config-opts": [
+        "-Dvulkan=enabled",
+        "-Dshaderc=enabled"
+      ],
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://github.com/haasn/libplacebo.git",
+          "tag": "v7.360.1",
+          "commit": "cee9b076f2c63104ccfd497fa79c39a867293ec4"
+        }
+      ]
+    },
+    {
+      "name": "mpv",
+      "buildsystem": "meson",
+      "cleanup": ["/include", "/lib/pkgconfig", "/share/bash-completion", "/share/zsh", "/share/doc", "/share/icons", "/share/applications"],
+      "config-opts": [
+        "-Dlibmpv=true",
+        "-Dcplayer=false",
+        "-Dbuild-date=false",
+        "-Dmanpage-build=disabled",
+        "-Dgpl=false"
+      ],
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://github.com/mpv-player/mpv/archive/refs/tags/v0.39.0.tar.gz",
+          "sha256": "2ca92437affb62c2b559b4419ea4785c70d023590500e8a52e95ea3ab4554683"
+        }
+      ]
+    },
+    {
       "name": "space",
       "buildsystem": "simple",
       "build-commands": [
         "cp -r space /app/space",
-        "chmod +x /app/space/client_mobile",
-        "mkdir /app/bin",
-        "ln -s /app/space/client_mobile /app/bin/space",
-
-        "install -Dm644 /app/space/data/flutter_assets/assets/images/logo.svg /app/share/icons/hicolor/scalable/apps/app.getspace.Space.svg",
+        "chmod +x /app/space/space",
+        "mkdir -p /app/bin",
+        "printf '#!/bin/sh\\nexport LD_LIBRARY_PATH=/app/lib:${LD_LIBRARY_PATH}\\nexec /app/space/space \"$@\"\\n' > /app/bin/space && chmod +x /app/bin/space",
+        "install -Dm644 /app/space/data/flutter_assets/assets/images/brand_logo.svg /app/share/icons/hicolor/scalable/apps/app.getspace.Space.svg",
         "install -Dm644 /app/space/app.getspace.Space.desktop /app/share/applications/app.getspace.Space.desktop",
         "install -Dm644 /app/space/app.getspace.Space.metainfo.xml /app/share/metainfo/app.getspace.Space.metainfo.xml"
       ],
       "sources": [
         {
           "type": "archive",
-          "url": "https://space-linux.s3.eu-west-1.amazonaws.com/releases/space_2.0.6.tar.xz",
-          "sha256": "0adaae744babf559a0f4291550f24260393d71e313347b347480e62acb4bcfd3",
+          "url": "https://space-linux.s3.eu-west-1.amazonaws.com/releases/space_5.0.0.tar.xz",
+          "sha256": "bdabe2e9912c2e2d753950048ace8751dac932139ae9aae2e30922f4c973b34c",
           "dest": "space"
-        },
-        {
-          "type": "patch",
-          "path": "app.getspace.Space.metainfo.xml.patch"
         }
       ]
     }
