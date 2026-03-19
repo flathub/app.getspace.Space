@@ -84,7 +84,7 @@
         {
           "type": "archive",
           "url": "https://space-linux.s3.eu-west-1.amazonaws.com/releases/space_5.0.0.tar.xz",
-          "sha256": "a6d594028cc2c5c23e00b1910ed2ba8153f699f2b22c6607a6f453526997eaba",
+          "sha256": "bdabe2e9912c2e2d753950048ace8751dac932139ae9aae2e30922f4c973b34c",
           "dest": "space"
         }
       ]
