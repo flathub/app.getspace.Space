@@ -16,7 +16,10 @@
   "modules": [
     {
       "name": "libass",
-      "cleanup": ["/include", "/lib/pkgconfig"],
+      "cleanup": [
+        "/include",
+        "/lib/pkgconfig"
+      ],
       "config-opts": [
         "--disable-static",
         "--enable-asm",
@@ -35,7 +38,10 @@
     {
       "name": "libplacebo",
       "buildsystem": "meson",
-      "cleanup": ["/include", "/lib/pkgconfig"],
+      "cleanup": [
+        "/include",
+        "/lib/pkgconfig"
+      ],
       "config-opts": [
         "-Dvulkan=enabled",
         "-Dshaderc=enabled"
@@ -52,7 +58,15 @@
     {
       "name": "mpv",
       "buildsystem": "meson",
-      "cleanup": ["/include", "/lib/pkgconfig", "/share/bash-completion", "/share/zsh", "/share/doc", "/share/icons", "/share/applications"],
+      "cleanup": [
+        "/include",
+        "/lib/pkgconfig",
+        "/share/bash-completion",
+        "/share/zsh",
+        "/share/doc",
+        "/share/icons",
+        "/share/applications"
+      ],
       "config-opts": [
         "-Dlibmpv=true",
         "-Dcplayer=false",
@@ -75,7 +89,7 @@
         "cp -r space /app/space",
         "chmod +x /app/space/space",
         "mkdir -p /app/bin",
-        "printf '#!/bin/sh\\nexport LD_LIBRARY_PATH=/app/lib:${LD_LIBRARY_PATH}\\nexec /app/space/space \"$@\"\\n' > /app/bin/space && chmod +x /app/bin/space",
+        "printf '#!/bin/sh\\nexport LD_LIBRARY_PATH=/app/space/lib:/app/lib:${LD_LIBRARY_PATH}\\nexec /app/space/space \"$@\"\\n' > /app/bin/space && chmod +x /app/bin/space",
         "install -Dm644 /app/space/data/flutter_assets/assets/images/brand_logo.svg /app/share/icons/hicolor/scalable/apps/app.getspace.Space.svg",
         "install -Dm644 /app/space/app.getspace.Space.desktop /app/share/applications/app.getspace.Space.desktop",
         "install -Dm644 /app/space/app.getspace.Space.metainfo.xml /app/share/metainfo/app.getspace.Space.metainfo.xml"
@@ -83,8 +97,8 @@
       "sources": [
         {
           "type": "archive",
-          "url": "https://space-linux.s3.eu-west-1.amazonaws.com/releases/space_5.0.0.tar.xz",
-          "sha256": "bdabe2e9912c2e2d753950048ace8751dac932139ae9aae2e30922f4c973b34c",
+          "url": "https://space-linux.s3.eu-west-1.amazonaws.com/releases/space_5.0.1.tar.xz",
+          "sha256": "22a56d32f5b358cf2de5050d282c91e3e0c0109ad5d706c31eb4bc0768ed3197",
           "dest": "space"
         }
       ]
