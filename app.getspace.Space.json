@@ -97,8 +97,8 @@
       "sources": [
         {
           "type": "archive",
-          "url": "https://space-linux.s3.eu-west-1.amazonaws.com/releases/space_5.0.1.tar.xz",
-          "sha256": "22a56d32f5b358cf2de5050d282c91e3e0c0109ad5d706c31eb4bc0768ed3197",
+          "url": "https://space-linux.s3.eu-west-1.amazonaws.com/releases/space_5.0.3.tar.xz",
+          "sha256": "06a69ef7beac89d309c54fc014632ee4349edc6ba136d64bffe96c305491a9c3",
           "dest": "space"
         }
       ]
